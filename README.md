@@ -1,1 +1,0 @@
-# index-studio-dev-task

@@ -1,9 +1,9 @@
 import { DateTime } from "luxon";
 
 export function makePrettyDateTime(dateTime: string) {
-  const localizedDateTime = DateTime.fromISO(dateTime)
+  const localizedDateTime = DateTime.fromISO(dateTime.replaceAll(" ", ""))
     .toFormat("f")
-    .replaceAll(" ", " ");
+    .replaceAll(" ", " "); //?
 
   const [localizedDate, localizedTime] = localizedDateTime.split(", ");
   const [fdp, sdp, tdp] = localizedDate.split("/");

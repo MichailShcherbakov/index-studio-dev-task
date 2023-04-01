@@ -4,10 +4,8 @@ import { DateTime } from "luxon";
 
 describe("makePrettyDateTime", () => {
   describe.each([
-    [
-      DateTime.fromISO("2016-05-25T09:08:34.123").toISO(),
-      "05.25.2016, 09.08 AM",
-    ],
+    ["2016-05-25T09:08:34.123", "05.25.2016, 09.08 AM"],
+    ["2016-05-25T09:08:34.123 -05:00", "05.25.2016, 05.08 PM"],
   ])("should return pretty date time: %1, %2, %3", (dateTime, result) => {
     expect(makePrettyDateTime(dateTime)).toEqual(result);
   });

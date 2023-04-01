@@ -1,21 +1,47 @@
 import { Stack, Typography } from "@mui/material";
-import { grey, white } from "~/ui-kit";
+import { UiChip, grey, white } from "~/ui-kit";
 import { makePrettyPriceNumber } from "./helpers/makePrettyPriceNumber";
 import { makePrettyDateTime } from "./helpers/makePrettyDateTime";
 import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { AdCardImageLayout } from "./AdCardImageLayout";
+import { theme } from "~/ui-kit/theme";
 
 export interface AdCardProps extends AddCardLayoutProps {
   title: string;
   price: number;
-  city: string;
-  date: string;
+  address: string;
+  createdAt: string;
+  /**
+   * @default false
+   */
+  isSeen?: boolean;
 }
 
-export function AdCard({ title, price, city, date, ...props }: AdCardProps) {
+export function AdCard({
+  title,
+  price,
+  address,
+  createdAt,
+  isSeen = false,
+  ...props
+}: AdCardProps) {
   return (
     <AdCardLayout {...props}>
-      <AdCardImageLayout {...props}></AdCardImageLayout>
+      <AdCardImageLayout {...props}>
+        {isSeen && (
+          <UiChip
+            sx={theme => ({
+              position: "absolute",
+              top: theme.spacing(1.5),
+              left: "50%",
+
+              transform: "translate(-50%, 0)",
+            })}
+          >
+            Просмотрено
+          </UiChip>
+        )}
+      </AdCardImageLayout>
       <Stack
         direction="column"
         sx={theme => ({
@@ -43,7 +69,7 @@ export function AdCard({ title, price, city, date, ...props }: AdCardProps) {
         </Typography>
         <Stack direction="row" justifyContent="space-between" gap={2}>
           <Typography component="span" variant="body2" noWrap>
-            {city}
+            {address}
           </Typography>
           <Typography
             component="span"
@@ -52,7 +78,7 @@ export function AdCard({ title, price, city, date, ...props }: AdCardProps) {
               flexShrink: 0,
             }}
           >
-            {makePrettyDateTime(date)}
+            {makePrettyDateTime(createdAt)}
           </Typography>
         </Stack>
       </Stack>

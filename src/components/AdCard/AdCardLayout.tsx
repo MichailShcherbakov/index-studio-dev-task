@@ -1,10 +1,12 @@
 import { Box, BoxProps, styled } from "@mui/material";
 
+export type AdCardOrientation = "vertical" | "horizontal";
+
 export interface AddCardLayoutProps extends BoxProps {
   /**
    * @default "vertical"
    */
-  orientation?: "vertical" | "horizontal";
+  orientation?: AdCardOrientation;
 }
 
 export const AdCardLayout = styled(Box, {

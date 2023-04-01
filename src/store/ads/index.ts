@@ -4,7 +4,7 @@ import {
   appendAdsAction,
   requestAdsAction,
   setAdsAction,
-  setAdsViewSettingsAction,
+  setAdsViewingSettingsAction,
   setRequestStatusAction,
 } from "./actions";
 
@@ -40,7 +40,7 @@ const adsSlice = createSlice({
       .addCase(setRequestStatusAction, (state, action) => {
         state.status = action.payload.status;
       })
-      .addCase(setAdsViewSettingsAction, (state, action) => {
+      .addCase(setAdsViewingSettingsAction, (state, action) => {
         state.viewingSettings = {
           ...state.viewingSettings,
           ...action.payload.settings,

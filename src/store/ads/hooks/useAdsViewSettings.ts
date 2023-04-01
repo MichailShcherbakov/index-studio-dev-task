@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "~/store/hooks";
-import { setAdsViewSettingsAction } from "../actions";
+import { setAdsViewingSettingsAction } from "../actions";
 import { AdsViewingSettings } from "../type";
 
 export function useAdsViewSettings() {
@@ -9,7 +9,7 @@ export function useAdsViewSettings() {
 
   const setSettings = React.useCallback(
     (settings: Partial<AdsViewingSettings>) => {
-      dispatch(setAdsViewSettingsAction({ settings }));
+      dispatch(setAdsViewingSettingsAction({ settings }));
     },
     [dispatch],
   );

@@ -6,17 +6,7 @@ import {
 import { Grid } from "@mui/material";
 import { AdCard } from "~/components/AdCard";
 import { useAdsViewSettings } from "~/store/ads/hooks/useAdsViewSettings";
-import { AdCardOrientation } from "~/components/AdCard/AdCardLayout";
-
-const ORIENTATION_BY_VIEW: Record<AdsViewEnum, AdCardOrientation> = {
-  [AdsViewEnum.GRID]: "vertical",
-  [AdsViewEnum.LIST]: "horizontal",
-};
-
-const CELLS_SIZE_BY_VIEW: Record<AdsViewEnum, number> = {
-  [AdsViewEnum.GRID]: 3,
-  [AdsViewEnum.LIST]: 6,
-};
+import { CELLS_SIZE_BY_VIEW, ORIENTATION_BY_VIEW } from "./constants";
 
 export interface AdsViewerContentProps extends AdsViewerContentLayoutProps {
   ads: Ad[];

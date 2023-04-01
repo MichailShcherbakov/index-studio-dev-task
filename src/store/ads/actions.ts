@@ -22,9 +22,9 @@ export const appendAdsAction = createAction<{
   pages: number;
 }>("appendAdsAction");
 
-export const setAdsViewSettingsAction = createAction<{
+export const setAdsViewingSettingsAction = createAction<{
   settings: Partial<AdsViewingSettings>;
-}>("setAdsViewSettingsAction");
+}>("setAdsViewingSettingsAction");
 
 /** @private */
 export const setRequestStatusAction = createAction<{

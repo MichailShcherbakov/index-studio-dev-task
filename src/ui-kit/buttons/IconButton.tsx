@@ -9,7 +9,7 @@ export interface UiIconButtonProps extends ButtonBaseProps {
   /**
    * "medium"
    */
-  size?: "medium";
+  size?: "small" | "medium";
 }
 
 export const UiIconButton = styled(ButtonBase, {
@@ -19,15 +19,28 @@ export const UiIconButton = styled(ButtonBase, {
 
   borderRadius: theme.spacing(6),
 
+  transition: "color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+
+  ...(size === "small" && {
+    width: theme.spacing(4),
+    height: theme.spacing(4),
+
+    padding: theme.spacing(0),
+  }),
+
   ...(size === "medium" && {
     width: theme.spacing(5),
     height: theme.spacing(5),
 
-    padding: theme.spacing(1),
+    padding: theme.spacing(0),
   }),
 
   "&:hover": {
     color: grey[500],
+  },
+
+  "&:active": {
+    color: green[400],
   },
 
   ...(isActive && {

@@ -1,10 +1,11 @@
 import { Stack, Typography } from "@mui/material";
-import { UiChip, grey, white } from "~/ui-kit";
+import { UiChip, UiIconButton, grey, white } from "~/ui-kit";
 import { makePrettyPriceNumber } from "./helpers/makePrettyPriceNumber";
 import { makePrettyDateTime } from "./helpers/makePrettyDateTime";
 import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { AdCardImageLayout } from "./AdCardImageLayout";
-import { theme } from "~/ui-kit/theme";
+
+import { ReactComponent as LikeIcon } from "~/assets/icons/like.svg";
 
 export interface AdCardProps extends AddCardLayoutProps {
   title: string;
@@ -56,6 +57,9 @@ export function AdCard({
           <Typography component="p" variant="h4" noWrap>
             {makePrettyPriceNumber(price, "₽")}
           </Typography>
+          <UiIconButton size="small">
+            <LikeIcon />
+          </UiIconButton>
         </Stack>
         <Typography
           component="p"

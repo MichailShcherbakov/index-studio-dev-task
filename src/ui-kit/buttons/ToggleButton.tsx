@@ -15,6 +15,8 @@ export const UiToggleButton = styled(ToggleButton)(({ theme }) => ({
 
   padding: theme.spacing(1),
 
+  transition: "color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+
   color: grey[400],
 
   "&:hover": {

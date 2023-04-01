@@ -8,6 +8,8 @@ export function useAds() {
   const ads = useAppSelector(state => state.ads.all);
   const currentPage = useAppSelector(state => state.ads.page);
 
+  const isEmpty = useAppSelector(state => !state.ads.all.length);
+
   const isLoading = useAppSelector(
     state =>
       state.ads.status === RequestStatusEnum.PENDING && !state.ads.all.length,
@@ -27,5 +29,5 @@ export function useAds() {
     );
   }, [dispatch, currentPage]);
 
-  return { ads, refetchAds, isLoading, isError };
+  return { ads, refetchAds, isLoading, isError, isEmpty };
 }

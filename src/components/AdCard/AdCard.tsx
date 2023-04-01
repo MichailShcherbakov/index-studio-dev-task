@@ -53,7 +53,7 @@ export function AdCard({
         gap={1.25}
       >
         <Stack direction="row" justifyContent="space-between">
-          <Typography component="p" variant="h5" noWrap>
+          <Typography component="p" variant="h4" noWrap>
             {makePrettyPriceNumber(price, "₽")}
           </Typography>
         </Stack>

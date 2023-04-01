@@ -11,10 +11,16 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: ["Ubuntu", "sans-serif"].join(","),
-    h5: {
+    h4: {
       fontSize: "22px",
       fontWeight: 700,
       lineHeight: "25px",
+      color: grey[700],
+    },
+    h5: {
+      fontSize: "16.8px",
+      fontWeight: 500,
+      lineHeight: "19px",
       color: grey[700],
     },
     h6: {

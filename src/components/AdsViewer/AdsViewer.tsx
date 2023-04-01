@@ -11,9 +11,12 @@ import { AdsViewerHeaderSkeleton } from "./header/AdsViewerHeaderSkeleton";
 import { AdsViewerContent } from "./content/AdsViewerContent";
 import { AdsViewerContentSkeleton } from "./content/AdsViewerContentSkeleton";
 import { RequestErrorStub } from "../stubs/RequestErrorStub";
+import { EmptyRequestStub } from "../stubs/EmptyRequestStub";
 
 export function AdsViewer() {
-  const { ads, refetchAds, isLoading, isError } = useAds();
+  const { ads, refetchAds, isLoading, isError, isEmpty } = useAds();
+
+  if (isEmpty) return <EmptyRequestStub />;
 
   return (
     <Stack direction="column" gap={3.25}>

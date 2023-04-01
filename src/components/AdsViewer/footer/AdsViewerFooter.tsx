@@ -1,4 +1,5 @@
 import { Stack } from "@mui/material";
+import { RequestErrorStub } from "~/components/stubs/RequestErrorStub";
 import { useLoadMoreAds } from "~/store/ads/hooks";
 import { UiButton, UiProgress } from "~/ui-kit";
 
@@ -7,6 +8,10 @@ export function AdsViewerFooter() {
 
   if (!isLoadableMore) return null;
 
+  const showErrorStub = isError;
+  const showLoadingProgress = !isError && isLoading;
+  const showLoadMoreButton = !isError && !isLoading;
+
   return (
     <Stack
       component="footer"
@@ -14,8 +19,11 @@ export function AdsViewerFooter() {
       alignItems="center"
       justifyContent="center"
     >
-      {isLoading && <UiProgress />}
-      {!isLoading && <UiButton onClick={loadMore}>Показать еще</UiButton>}
+      {showErrorStub && <RequestErrorStub onRequestAgain={loadMore} />}
+      {showLoadingProgress && <UiProgress />}
+      {showLoadMoreButton && (
+        <UiButton onClick={loadMore}>Показать еще</UiButton>
+      )}
     </Stack>
   );
 }

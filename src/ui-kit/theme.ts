@@ -23,6 +23,12 @@ export const theme = createTheme({
       lineHeight: "16px",
       color: grey[700],
     },
+    body1: {
+      fontSize: "14.4px",
+      fontWeight: 400,
+      lineHeight: "17px",
+      color: grey[600],
+    },
     body2: {
       fontSize: "12px",
       fontWeight: 400,

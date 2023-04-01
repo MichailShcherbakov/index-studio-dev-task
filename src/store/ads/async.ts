@@ -46,7 +46,8 @@ function* loadInitialAds() {
   yield put({
     type: requestAdsAction.type,
     payload: {
-      page: 1, // loading the first page
+      // loading the first page
+      page: 1,
     },
   });
 }

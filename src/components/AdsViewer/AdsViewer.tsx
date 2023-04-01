@@ -1,8 +1,6 @@
 import { Grid, Skeleton, Stack } from "@mui/material";
 import { AdsViewerToggleButton } from "./header/AdsViewerToggleButton";
 import { useAds } from "~/store/ads/hooks";
-import { AdCard } from "../AdCard";
-import { AdCardSkeleton } from "../AdCardSkeleton";
 import { UiContainer } from "~/ui-kit/container";
 import { AdsViewerFooter } from "./footer/AdsViewerFooter";
 import { AdsViewerFooterSkeleton } from "./footer/AdsViewerFooterSkeleton";
@@ -16,7 +14,7 @@ import { EmptyRequestStub } from "../stubs/EmptyRequestStub";
 export function AdsViewer() {
   const { ads, refetchAds, isLoading, isError, isEmpty } = useAds();
 
-  if (isEmpty) return <EmptyRequestStub />;
+  if (!isLoading && !isError && isEmpty) return <EmptyRequestStub />;
 
   return (
     <Stack direction="column" gap={3.25}>

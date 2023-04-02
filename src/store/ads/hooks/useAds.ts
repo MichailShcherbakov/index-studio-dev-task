@@ -10,17 +10,19 @@ export function useAds() {
 
   const isEmpty = useAppSelector(
     state =>
-      state.ads.status !== RequestStatusEnum.IDLE && !state.ads.all.length,
+      state.ads.status !== RequestStatusEnum.IDLE && state.ads.page === 0,
   );
 
   const isLoading = useAppSelector(
     state =>
-      state.ads.status === RequestStatusEnum.PENDING && !state.ads.all.length,
+      (state.ads.status === RequestStatusEnum.IDLE ||
+        state.ads.status === RequestStatusEnum.PENDING) &&
+      state.ads.page === 0,
   );
 
   const isError = useAppSelector(
     state =>
-      state.ads.status === RequestStatusEnum.REJECTED && !state.ads.all.length,
+      state.ads.status === RequestStatusEnum.REJECTED && state.ads.page === 0,
   );
 
   const refetchAds = React.useCallback(() => {

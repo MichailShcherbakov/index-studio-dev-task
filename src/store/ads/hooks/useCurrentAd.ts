@@ -11,7 +11,9 @@ export function useCurrentAd() {
   );
 
   const isLoading = useAppSelector(
-    state => state.ads.status === RequestStatusEnum.PENDING,
+    state =>
+      state.ads.status === RequestStatusEnum.IDLE ||
+      state.ads.status === RequestStatusEnum.PENDING,
   );
 
   const isError = useAppSelector(

@@ -22,22 +22,26 @@ export function AdsViewer(props: AdsViewerProps) {
   return (
     <AdsViewerLayout {...props}>
       {isError && <RequestErrorStub onRequestAgain={refetchAds} />}
-      {isLoading && <AdsViewerHeaderSkeleton />}
-      {!isLoading && !isError && <AdsViewerHeader />}
-      <UiContainer>
-        {isLoading && !isError && (
-          <>
-            <AdsViewerContentSkeleton />
-            <AdsViewerFooterSkeleton />
-          </>
-        )}
-        {!isLoading && !isError && (
-          <>
-            <AdsViewerContent ads={ads} />
-            <AdsViewerFooter />
-          </>
-        )}
-      </UiContainer>
+      {!isError && (
+        <>
+          {isLoading && <AdsViewerHeaderSkeleton />}
+          {!isLoading && <AdsViewerHeader />}
+          <UiContainer>
+            {isLoading && (
+              <>
+                <AdsViewerContentSkeleton />
+                <AdsViewerFooterSkeleton />
+              </>
+            )}
+            {!isLoading && (
+              <>
+                <AdsViewerContent ads={ads} />
+                <AdsViewerFooter />
+              </>
+            )}
+          </UiContainer>
+        </>
+      )}
     </AdsViewerLayout>
   );
 }

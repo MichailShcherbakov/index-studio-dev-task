@@ -3,6 +3,11 @@ export enum AdsViewEnum {
   LIST = "list",
 }
 
+export type AdImage = {
+  id: string;
+  url: string;
+};
+
 export type Ad = {
   id: string;
   seen: boolean;
@@ -11,7 +16,7 @@ export type Ad = {
   address: string;
   about: string;
   createdAt: string;
-  images: string[];
+  images: AdImage[];
 };
 
 export enum RequestStatusEnum {

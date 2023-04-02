@@ -26,11 +26,10 @@ export const AdsApi = {
       ...data,
       items: data.items.map(item => ({
         ...item,
-        images: new Array(4)
-          .fill(0)
-          .map((_, idx) => [
-            `https://picsum.photos/seed/${item.id}-${idx}/224/260`,
-          ]),
+        images: new Array(4).fill(0).map((_, idx) => ({
+          id: `${item.id}-${idx}`,
+          url: `https://picsum.photos/seed/${item.id}-${idx}/224/260`,
+        })),
       })),
     };
   },

@@ -44,9 +44,9 @@ export function AdCardImageSlider({
         slidesPerView={1}
       >
         {images.map(image => (
-          <SwiperSlide>
+          <SwiperSlide key={image.id}>
             <img
-              src={image}
+              src={image.url}
               alt="ad"
               style={{
                 width: "100%",

@@ -53,7 +53,18 @@ export function _AdCard({
       </AdCardImageLayout>
       <AdCardContentLayout>
         <Stack direction="row" justifyContent="space-between">
-          <Typography component="p" variant="h4" noWrap>
+          <Typography
+            component="p"
+            variant="h4"
+            noWrap
+            sx={theme => ({
+              ...(props.orientation === "horizontal" && {
+                [theme.breakpoints.down("sm")]: {
+                  fontSize: theme.spacing(2),
+                },
+              }),
+            })}
+          >
             {makePrettyPriceNumber(price, "₽")}
           </Typography>
           <AdCardLikeButton adId={adId} />
@@ -62,13 +73,31 @@ export function _AdCard({
           component="p"
           variant="h6"
           noWrap
-          sx={{
+          sx={theme => ({
             height: "100%",
-          }}
+
+            ...(props.orientation === "horizontal" && {
+              [theme.breakpoints.down("sm")]: {
+                fontSize: theme.spacing(1.5),
+              },
+            }),
+          })}
         >
           {title}
         </Typography>
-        <Stack direction="row" justifyContent="space-between" gap={2}>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          gap={2}
+          sx={theme => ({
+            ...(props.orientation === "horizontal" && {
+              [theme.breakpoints.down("sm")]: {
+                flexDirection: "column",
+                fontSize: theme.spacing(1.5),
+              },
+            }),
+          })}
+        >
           <Typography component="span" variant="body2" noWrap>
             {address}
           </Typography>

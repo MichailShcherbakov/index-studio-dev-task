@@ -21,11 +21,15 @@ export const AdCardImageLayout = styled(Box, {
 
   ...(orientation === "vertical" && {
     width: "100%",
-    height: theme.spacing(32.5), // 260px
+    height: theme.spacing(32.5),
   }),
 
   ...(orientation === "horizontal" && {
-    width: theme.spacing(19.5), // 156px
-    height: "100%", // 260px
+    width: theme.spacing(19.5),
+    height: "100%",
+
+    [theme.breakpoints.down("sm")]: {
+      width: theme.spacing(14),
+    },
   }),
 }));

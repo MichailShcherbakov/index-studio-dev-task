@@ -17,15 +17,15 @@ export const AdCardLayout = styled(Box, {
   display: "flex",
 
   ...(orientation === "vertical" && {
-    width: theme.spacing(28), // 224px
-    height: theme.spacing(45.5), // 364px
+    width: theme.spacing(28),
+    height: theme.spacing(45.5),
 
     flexDirection: "column",
   }),
 
   ...(orientation === "horizontal" && {
-    width: "100%", // 224px
-    height: theme.spacing(16.75), // 134px
+    width: "100%",
+    height: theme.spacing(16.75),
 
     flexDirection: "row",
   }),

@@ -10,14 +10,17 @@ import { AdsViewerContent } from "./content/AdsViewerContent";
 import { AdsViewerContentSkeleton } from "./content/AdsViewerContentSkeleton";
 import { RequestErrorStub } from "../stubs/RequestErrorStub";
 import { EmptyRequestStub } from "../stubs/EmptyRequestStub";
+import { AdsViewerLayout, AdsViewerLayoutProps } from "./AdsViewerLayout";
 
-export function AdsViewer() {
+export interface AdsViewerProps extends AdsViewerLayoutProps {}
+
+export function AdsViewer(props: AdsViewerProps) {
   const { ads, refetchAds, isLoading, isError, isEmpty } = useAds();
 
   if (!isLoading && !isError && isEmpty) return <EmptyRequestStub />;
 
   return (
-    <Stack direction="column" gap={3.25} p={4.375}>
+    <AdsViewerLayout {...props}>
       {isError && <RequestErrorStub onRequestAgain={refetchAds} />}
       {isLoading && <AdsViewerHeaderSkeleton />}
       {!isLoading && !isError && <AdsViewerHeader />}
@@ -35,6 +38,6 @@ export function AdsViewer() {
           </>
         )}
       </UiContainer>
-    </Stack>
+    </AdsViewerLayout>
   );
 }

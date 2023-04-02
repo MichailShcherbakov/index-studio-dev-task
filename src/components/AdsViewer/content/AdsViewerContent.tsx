@@ -21,7 +21,19 @@ export function AdsViewerContent({ ads, ...props }: AdsViewerContentProps) {
   return (
     <AdsViewerContentLayout {...props}>
       {ads.map(ad => (
-        <Grid item key={ad.id} xs={cellSize}>
+        <Grid
+          item
+          key={ad.id}
+          xs={cellSize.xs}
+          sm={cellSize.sm}
+          md={cellSize.md}
+          lg={cellSize.lg}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <AdCard
             orientation={orientation}
             adId={ad.id}

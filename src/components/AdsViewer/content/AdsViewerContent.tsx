@@ -29,6 +29,7 @@ export function AdsViewerContent({ ads, ...props }: AdsViewerContentProps) {
             price={ad.price}
             address={ad.address}
             createdAt={ad.createdAt}
+            images={ad.images}
             isSeen={ad.seen}
           />
         </Grid>

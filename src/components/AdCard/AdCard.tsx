@@ -7,6 +7,7 @@ import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { AdCardImageLayout } from "./AdCardImageLayout";
 import { Ad } from "~/store/ads/type";
 import { AdCardLikeButton } from "./AdCardLikeButton";
+import { AdCardImageSlider } from "./AdCardImageSlider";
 
 export interface AdCardProps extends AddCardLayoutProps {
   adId: Ad["id"];
@@ -14,6 +15,7 @@ export interface AdCardProps extends AddCardLayoutProps {
   price: Ad["price"];
   address: Ad["address"];
   createdAt: Ad["createdAt"];
+  images: Ad["images"];
   /**
    * @default false
    */
@@ -26,6 +28,7 @@ export function _AdCard({
   price,
   address,
   createdAt,
+  images,
   isSeen = false,
   ...props
 }: AdCardProps) {
@@ -38,13 +41,14 @@ export function _AdCard({
               position: "absolute",
               top: theme.spacing(1.5),
               left: "50%",
-
+              zIndex: theme.zIndex.tooltip,
               transform: "translate(-50%, 0)",
             })}
           >
             Просмотрено
           </UiChip>
         )}
+        <AdCardImageSlider images={images} />
       </AdCardImageLayout>
       <Stack
         direction="column"

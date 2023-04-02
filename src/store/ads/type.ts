@@ -11,6 +11,7 @@ export type Ad = {
   address: string;
   about: string;
   createdAt: string;
+  images: string[];
 };
 
 export enum RequestStatusEnum {

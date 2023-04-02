@@ -22,6 +22,16 @@ export const AdsApi = {
       `${API_URL}/items?page=${page}`,
     );
 
-    return data;
+    return {
+      ...data,
+      items: data.items.map(item => ({
+        ...item,
+        images: new Array(4)
+          .fill(0)
+          .map((_, idx) => [
+            `https://picsum.photos/seed/${item.id}-${idx}/224/260`,
+          ]),
+      })),
+    };
   },
 };

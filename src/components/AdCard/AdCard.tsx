@@ -1,6 +1,5 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import { UiChip, white } from "~/ui-kit";
 import { makePrettyPriceNumber } from "./helpers/makePrettyPriceNumber";
 import { makePrettyDateTime } from "./helpers/makePrettyDateTime";
 import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
@@ -8,6 +7,9 @@ import { AdCardImageLayout } from "./AdCardImageLayout";
 import { Ad } from "~/store/ads/type";
 import { AdCardLikeButton } from "./AdCardLikeButton";
 import { AdCardImageSlider } from "./AdCardImageSlider";
+import { Link } from "react-router-dom";
+import { AdSeenChip } from "./AdSeenChip";
+import { AdCardContentLayout } from "./AdCartContentLayout";
 
 export interface AdCardProps extends AddCardLayoutProps {
   adId: Ad["id"];
@@ -34,32 +36,22 @@ export function _AdCard({
 }: AdCardProps) {
   return (
     <AdCardLayout {...props}>
-      <AdCardImageLayout {...props}>
-        {isSeen && (
-          <UiChip
-            sx={theme => ({
-              position: "absolute",
-              top: theme.spacing(1.5),
-              left: "50%",
-              zIndex: theme.zIndex.tooltip,
-              transform: "translate(-50%, 0)",
-            })}
-          >
-            Просмотрено
-          </UiChip>
-        )}
-        <AdCardImageSlider images={images} />
-      </AdCardImageLayout>
-      <Stack
-        direction="column"
-        sx={theme => ({
+      <Link
+        to={`/${adId}`}
+        title={title}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
           width: "100%",
           height: "100%",
-          background: white,
-          padding: theme.spacing(1.25, 1.5, 2.5),
-        })}
-        gap={1.25}
-      >
+        }}
+      />
+      <AdCardImageLayout {...props}>
+        {isSeen && <AdSeenChip />}
+        <AdCardImageSlider images={images} />
+      </AdCardImageLayout>
+      <AdCardContentLayout>
         <Stack direction="row" justifyContent="space-between">
           <Typography component="p" variant="h4" noWrap>
             {makePrettyPriceNumber(price, "₽")}
@@ -90,7 +82,7 @@ export function _AdCard({
             {makePrettyDateTime(createdAt)}
           </Typography>
         </Stack>
-      </Stack>
+      </AdCardContentLayout>
     </AdCardLayout>
   );
 }

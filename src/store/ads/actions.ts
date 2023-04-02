@@ -12,9 +12,13 @@ export type RequestAdsOptions = {
   loadMore?: boolean;
 };
 
+// Ads
+
 export const requestAdsAction = createAction<RequestAdsOptions | undefined>(
   "requestAdsAction",
 );
+
+export const loadInitialAdsAction = createAction("loadInitialAdsAction");
 
 export const setAdsAction = createAction<{
   ads: Ad[];
@@ -28,14 +32,36 @@ export const appendAdsAction = createAction<{
   pages: number;
 }>("appendAdsAction");
 
+// Current Ad
+
+export const loadCurrentAdAction = createAction<{
+  id: Ad["id"];
+}>("loadCurrentAdAction");
+
+export const setCurrentAdAction = createAction<{
+  ad: Ad;
+}>("setCurrentAdAction");
+
+// Ads Viewing Settings
+
+export const loadAdsViewingSettingsAction = createAction(
+  "loadAdsViewingSettingsAction",
+);
+
 export const setAdsViewingSettingsAction = createAction<{
   settings: Partial<AdsViewingSettings>;
 }>("setAdsViewingSettingsAction");
+
+// Ad Metadata
+
+export const loadAdsMetadataAction = createAction("loadAdsMetadataAction");
 
 export const setAdMetadataAction = createAction<{
   adId: Ad["id"];
   metadata: Partial<AdMetadata>;
 }>("setAdMetadataAction");
+
+// Private
 
 /** @private */
 export const setRequestStatusAction = createAction<{

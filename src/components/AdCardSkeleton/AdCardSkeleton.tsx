@@ -16,10 +16,10 @@ export function AdCardSkeleton({
       sx={{
         cursor: "inherit",
 
-        filter: "none",
+        boxShadow: "none",
 
         "&:hover": {
-          filter: "none",
+          boxShadow: "none",
         },
       }}
     >

@@ -19,7 +19,7 @@ export function useLoadMoreAds() {
       state.ads.status === RequestStatusEnum.REJECTED && !!state.ads.all.length,
   );
 
-  const isLoadableMore = currentPage + 1 < maxPageNum;
+  const isLoadableMore = currentPage + 1 <= maxPageNum;
 
   const loadMore = React.useCallback(() => {
     if (!isLoadableMore) return;

@@ -35,6 +35,7 @@ export type AdsState = {
   page: number;
   pages: number;
   status: RequestStatusEnum;
+  currentAdId: Ad["id"] | null;
   metadata: AdMetadataCollection;
   viewingSettings: AdsViewingSettings;
 };

@@ -12,6 +12,8 @@ export interface AddCardLayoutProps extends BoxProps {
 export const AdCardLayout = styled(Box, {
   shouldForwardProp: propName => propName !== "orientation",
 })<AddCardLayoutProps>(({ theme, orientation = "vertical" }) => ({
+  position: "relative",
+
   display: "flex",
 
   ...(orientation === "vertical" && {
@@ -32,9 +34,9 @@ export const AdCardLayout = styled(Box, {
 
   overflow: "hidden",
 
-  filter: "drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08))",
-
   cursor: "pointer",
+
+  filter: "drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.08))",
 
   "&:hover": {
     filter: "drop-shadow(0px 0px 11px rgba(0, 0, 0, 0.31))",

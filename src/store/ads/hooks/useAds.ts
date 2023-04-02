@@ -8,7 +8,10 @@ export function useAds() {
   const ads = useAppSelector(state => state.ads.all);
   const currentPage = useAppSelector(state => state.ads.page);
 
-  const isEmpty = useAppSelector(state => !state.ads.all.length);
+  const isEmpty = useAppSelector(
+    state =>
+      state.ads.status !== RequestStatusEnum.IDLE && !state.ads.all.length,
+  );
 
   const isLoading = useAppSelector(
     state =>
@@ -29,5 +32,16 @@ export function useAds() {
     );
   }, [dispatch, currentPage]);
 
-  return { ads, refetchAds, isLoading, isError, isEmpty };
+  const requestAds = React.useCallback(
+    (page: number) => {
+      dispatch(
+        requestAdsAction({
+          page,
+        }),
+      );
+    },
+    [dispatch],
+  );
+
+  return { ads, isLoading, isError, isEmpty, refetchAds, requestAds };
 }

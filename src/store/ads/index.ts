@@ -3,11 +3,13 @@ import { AdsState, AdsViewEnum, RequestStatusEnum } from "./type";
 import {
   appendAdsAction,
   requestAdsAction,
+  setCurrentAdAction,
   setAdMetadataAction,
   setAdsAction,
   setAdsMetadataAction,
   setAdsViewingSettingsAction,
   setRequestStatusAction,
+  loadCurrentAdAction,
 } from "./actions";
 
 const initialState: AdsState = {
@@ -15,6 +17,7 @@ const initialState: AdsState = {
   page: 0,
   pages: 0,
   status: RequestStatusEnum.IDLE,
+  currentAdId: null,
   metadata: {},
   viewingSettings: {
     view: AdsViewEnum.GRID,
@@ -27,6 +30,19 @@ const adsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
+      .addCase(setCurrentAdAction, (state, action) => {
+        const adIndex = state.all.findIndex(
+          ad => ad.id === action.payload.ad.id,
+        );
+
+        if (adIndex === -1) {
+          state.all.push(action.payload.ad);
+        } else {
+          state.all[adIndex] = action.payload.ad;
+        }
+
+        state.currentAdId = action.payload.ad.id;
+      })
       .addCase(setAdsAction, (state, action) => {
         state.all = action.payload.ads;
         state.page = action.payload.page;
@@ -38,6 +54,9 @@ const adsSlice = createSlice({
         state.pages = action.payload.pages;
       })
       .addCase(requestAdsAction, state => {
+        state.status = RequestStatusEnum.PENDING;
+      })
+      .addCase(loadCurrentAdAction, state => {
         state.status = RequestStatusEnum.PENDING;
       })
       .addCase(setRequestStatusAction, (state, action) => {

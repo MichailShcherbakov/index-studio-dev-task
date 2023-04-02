@@ -1,5 +1,7 @@
-import { Box, alpha, styled } from "@mui/material";
+import { Box, BoxProps, alpha, styled } from "@mui/material";
 import { grey, white } from "../colors";
+
+export interface UiChipProps extends BoxProps {}
 
 export const UiChip = styled(Box)(({ theme }) => ({
   background: alpha(white, 0.9),

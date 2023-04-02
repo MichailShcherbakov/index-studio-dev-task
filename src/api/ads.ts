@@ -27,6 +27,9 @@ export const AdsApi = {
 
     const { data } = await axios.get<GetAdsResult>(
       `${API_URL}/items?page=${page}`,
+      {
+        withCredentials: false,
+      },
     );
 
     return {
@@ -42,6 +45,9 @@ export const AdsApi = {
 
     const { data: item } = await axios.get<GetAdResult>(
       `${API_URL}/items/${id}`,
+      {
+        withCredentials: false,
+      },
     );
 
     return {

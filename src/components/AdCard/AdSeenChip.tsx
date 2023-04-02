@@ -6,6 +6,7 @@ export function AdSeenChip(props: AdSeenChipProps) {
   return (
     <UiChip
       {...props}
+      component="span"
       sx={theme => ({
         position: "absolute",
         top: theme.spacing(1.5),

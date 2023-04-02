@@ -17,7 +17,7 @@ export interface HomePageLayoutProps extends HomePageLayoutBaseProps {}
 
 export function HomePageLayout(props: HomePageLayoutProps) {
   return (
-    <ReturnToAboveProvider>
+    <ReturnToAboveProvider component="main">
       <HomePageLayoutBase {...props} />
     </ReturnToAboveProvider>
   );

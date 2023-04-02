@@ -36,7 +36,7 @@ export interface AdPageLayoutProps extends AdPageLayoutBaseProps {}
 
 export function AdPageLayout({ children, ...props }: AdPageLayoutProps) {
   return (
-    <AdPageLayoutBase {...props}>
+    <AdPageLayoutBase {...props} component="main">
       <AdPageLayoutHeader>
         <BackwardButton />
       </AdPageLayoutHeader>

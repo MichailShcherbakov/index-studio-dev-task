@@ -2,10 +2,10 @@ import {
   AdsViewerContentLayout,
   AdsViewerContentLayoutProps,
 } from "./AdsViewerContentLayout";
-import { Grid } from "@mui/material";
 import { AdCardSkeleton } from "~/components/AdCardSkeleton";
 import { useAdsViewSettings } from "~/store/ads/hooks/useAdsViewSettings";
 import { CELLS_SIZE_BY_VIEW, ORIENTATION_BY_VIEW } from "./constants";
+import { UiGrid } from "~/ui-kit";
 
 const FIXED_AD_SKELETONS_NUM = 20;
 
@@ -21,7 +21,7 @@ export function AdsViewerContentSkeleton(props: AdsViewerContentSkeletonProps) {
   return (
     <AdsViewerContentLayout {...props}>
       {new Array(FIXED_AD_SKELETONS_NUM).fill(0).map((_, idx) => (
-        <Grid
+        <UiGrid
           item
           key={idx}
           xs={cellSize.xs}
@@ -35,7 +35,7 @@ export function AdsViewerContentSkeleton(props: AdsViewerContentSkeletonProps) {
           }}
         >
           <AdCardSkeleton orientation={orientation} />
-        </Grid>
+        </UiGrid>
       ))}
     </AdsViewerContentLayout>
   );

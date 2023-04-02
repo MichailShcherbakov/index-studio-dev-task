@@ -1,10 +1,10 @@
-import { Stack, StackProps } from "@mui/material";
+import { UiStack, UiStackProps } from "~/ui-kit";
 
-export interface AdsViewerHeaderLayoutProps extends StackProps {}
+export interface AdsViewerHeaderLayoutProps extends UiStackProps {}
 
-export function AdsViewerHeaderLayout(props: StackProps) {
+export function AdsViewerHeaderLayout(props: AdsViewerHeaderLayoutProps) {
   return (
-    <Stack
+    <UiStack
       {...props}
       component="header"
       direction="row"

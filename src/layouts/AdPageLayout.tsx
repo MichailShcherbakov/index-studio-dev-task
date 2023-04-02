@@ -1,9 +1,9 @@
-import { Box, BoxProps, styled } from "@mui/material";
 import { BackwardButton } from "~/components/BackwardButton";
+import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
-export interface AdPageLayoutBaseProps extends BoxProps {}
+export interface AdPageLayoutBaseProps extends UiBoxProps {}
 
-export const AdPageLayoutBase = styled(Box)(({ theme }) => ({
+export const AdPageLayoutBase = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
 
@@ -17,9 +17,9 @@ export const AdPageLayoutBase = styled(Box)(({ theme }) => ({
   gap: theme.spacing(3),
 }));
 
-export interface AdPageLayoutHeaderProps extends BoxProps {}
+export interface AdPageLayoutHeaderProps extends UiBoxProps {}
 
-export const AdPageLayoutHeader = styled(Box)(({ theme }) => ({
+export const AdPageLayoutHeader = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
 

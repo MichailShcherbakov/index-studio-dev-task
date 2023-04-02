@@ -1,14 +1,17 @@
-import { Skeleton, Stack } from "@mui/material";
+import { UiSkeleton, UiStack, UiStackProps } from "~/ui-kit";
 
-export function AdsViewerFooterSkeleton() {
+export interface AdsViewerFooterSkeletonProps extends UiStackProps {}
+
+export function AdsViewerFooterSkeleton(props: AdsViewerFooterSkeletonProps) {
   return (
-    <Stack
+    <UiStack
+      {...props}
       component="footer"
       direction="row"
       alignItems="center"
       justifyContent="center"
     >
-      <Skeleton
+      <UiSkeleton
         variant="rounded"
         sx={theme => ({
           width: theme.spacing(15.625),
@@ -16,6 +19,6 @@ export function AdsViewerFooterSkeleton() {
           borderRadius: theme.spacing(5.5),
         })}
       />
-    </Stack>
+    </UiStack>
   );
 }

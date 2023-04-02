@@ -1,15 +1,15 @@
-import { Box, BoxProps, styled } from "@mui/material";
+import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
 export type AdCardOrientation = "vertical" | "horizontal";
 
-export interface AddCardLayoutProps extends BoxProps {
+export interface AddCardLayoutProps extends UiBoxProps {
   /**
    * @default "vertical"
    */
   orientation?: AdCardOrientation;
 }
 
-export const AdCardLayout = styled(Box, {
+export const AdCardLayout = styled(UiBox, {
   shouldForwardProp: propName => propName !== "orientation",
 })<AddCardLayoutProps>(({ theme, orientation = "vertical" }) => ({
   position: "relative",

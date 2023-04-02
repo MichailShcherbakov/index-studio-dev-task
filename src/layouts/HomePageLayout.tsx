@@ -1,9 +1,9 @@
-import { Box, BoxProps, styled } from "@mui/material";
 import { ReturnToAboveProvider } from "~/components/ReturnToAboveProvider";
+import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
-export interface HomePageLayoutBaseProps extends BoxProps {}
+export interface HomePageLayoutBaseProps extends UiBoxProps {}
 
-export const HomePageLayoutBase = styled(Box)(({ theme }) => ({
+export const HomePageLayoutBase = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
 

@@ -1,15 +1,15 @@
 import { grey } from "@mui/material/colors";
 import { AdCardImageSliderLayout } from "./AdCardImageSliderLayout";
 import { AdCardLayout, AdCardLayoutProps } from "./AdCardLayout";
-import { Skeleton, Stack } from "@mui/material";
+import { UiSkeleton, UiStack } from "~/ui-kit";
 
-export interface AdCardProps extends AdCardLayoutProps {}
+export interface AdCardSkeletonProps extends AdCardLayoutProps {}
 
-export function AdCardSkeleton(props: AdCardProps) {
+export function AdCardSkeleton(props: AdCardSkeletonProps) {
   return (
     <AdCardLayout {...props}>
       <AdCardImageSliderLayout>
-        <Skeleton
+        <UiSkeleton
           variant="rounded"
           width={256}
           height={288}
@@ -18,14 +18,14 @@ export function AdCardSkeleton(props: AdCardProps) {
           }}
         />
       </AdCardImageSliderLayout>
-      <Stack direction="column" width="100%" gap={2}>
-        <Stack
+      <UiStack direction="column" width="100%" gap={2}>
+        <UiStack
           direction="row"
           alignItems="center"
           justifyContent="space-between"
           gap={2}
         >
-          <Skeleton
+          <UiSkeleton
             variant="rounded"
             width="20%"
             height={17}
@@ -33,7 +33,7 @@ export function AdCardSkeleton(props: AdCardProps) {
               backgroundColor: grey[200],
             }}
           />
-          <Skeleton
+          <UiSkeleton
             variant="rounded"
             width={32}
             height={32}
@@ -41,8 +41,8 @@ export function AdCardSkeleton(props: AdCardProps) {
               backgroundColor: grey[200],
             }}
           />
-        </Stack>
-        <Skeleton
+        </UiStack>
+        <UiSkeleton
           variant="rounded"
           width="40%"
           height={25}
@@ -50,7 +50,7 @@ export function AdCardSkeleton(props: AdCardProps) {
             backgroundColor: grey[200],
           }}
         />
-        <Skeleton
+        <UiSkeleton
           variant="rounded"
           width="30%"
           height={19}
@@ -58,7 +58,7 @@ export function AdCardSkeleton(props: AdCardProps) {
             backgroundColor: grey[200],
           }}
         />
-        <Skeleton
+        <UiSkeleton
           variant="rounded"
           width="100%"
           height={68}
@@ -66,7 +66,7 @@ export function AdCardSkeleton(props: AdCardProps) {
             backgroundColor: grey[200],
           }}
         />
-        <Skeleton
+        <UiSkeleton
           variant="rounded"
           width="25%"
           height={17}
@@ -74,7 +74,7 @@ export function AdCardSkeleton(props: AdCardProps) {
             backgroundColor: grey[200],
           }}
         />
-      </Stack>
+      </UiStack>
     </AdCardLayout>
   );
 }

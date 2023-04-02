@@ -1,5 +1,3 @@
-import { Grid, Skeleton, Stack } from "@mui/material";
-import { AdsViewerToggleButton } from "./header/AdsViewerToggleButton";
 import { useAds } from "~/store/ads/hooks";
 import { UiContainer } from "~/ui-kit/container";
 import { AdsViewerFooter } from "./footer/AdsViewerFooter";

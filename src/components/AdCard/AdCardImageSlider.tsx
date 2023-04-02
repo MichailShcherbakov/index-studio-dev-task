@@ -3,11 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { Box, BoxProps } from "@mui/material";
-import { green, grey } from "~/ui-kit";
+import { UiBox, UiBoxProps, green, grey } from "~/ui-kit";
 import { Ad } from "~/store/ads/type";
 
-export interface AdCardImageSliderProps extends BoxProps {
+export interface AdCardImageSliderProps extends UiBoxProps {
   images: Ad["images"];
 }
 
@@ -16,7 +15,7 @@ export function AdCardImageSlider({
   ...props
 }: AdCardImageSliderProps) {
   return (
-    <Box
+    <UiBox
       {...props}
       sx={{
         width: "100%",
@@ -58,6 +57,6 @@ export function AdCardImageSlider({
           </SwiperSlide>
         ))}
       </Swiper>
-    </Box>
+    </UiBox>
   );
 }

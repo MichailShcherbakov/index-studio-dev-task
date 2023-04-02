@@ -1,15 +1,23 @@
-import { Stack, Typography } from "@mui/material";
+import { UiStack, UiTypography, UiStackProps } from "~/ui-kit";
 
-export function EmptyRequestStub() {
+export interface EmptyRequestStubProps extends UiStackProps {}
+
+export function EmptyRequestStub(props: EmptyRequestStubProps) {
   return (
-    <Stack direction="row" alignItems="center" justifyContent="center" flex={1}>
-      <Stack
+    <UiStack
+      {...props}
+      direction="row"
+      alignItems="center"
+      justifyContent="center"
+      flex={1}
+    >
+      <UiStack
         direction="column"
         alignItems="center"
         justifyContent="center"
         gap={1.25}
       >
-        <Typography
+        <UiTypography
           component="h6"
           variant="h5"
           color="primary"
@@ -19,8 +27,8 @@ export function EmptyRequestStub() {
           }}
         >
           Объявлений не найдено
-        </Typography>
-        <Typography
+        </UiTypography>
+        <UiTypography
           component="p"
           variant="body1"
           sx={theme => ({
@@ -30,8 +38,8 @@ export function EmptyRequestStub() {
         >
           Простите, по вашему запросу товаров сейчас нет. Задайте запрос
           по-другому или измените характеристики
-        </Typography>
-      </Stack>
-    </Stack>
+        </UiTypography>
+      </UiStack>
+    </UiStack>
   );
 }

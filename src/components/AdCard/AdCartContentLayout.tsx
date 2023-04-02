@@ -1,7 +1,8 @@
-import { Box, styled } from "@mui/material";
-import { white } from "~/ui-kit";
+import { UiBox, UiBoxProps, styled, white } from "~/ui-kit";
 
-export const AdCardContentLayout = styled(Box)(({ theme }) => ({
+export interface AdCardContentLayoutProps extends UiBoxProps {}
+
+export const AdCardContentLayout = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   width: "100%",

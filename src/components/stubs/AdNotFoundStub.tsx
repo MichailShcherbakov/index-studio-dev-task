@@ -1,15 +1,23 @@
-import { Stack, Typography } from "@mui/material";
+import { UiStack, UiStackProps, UiTypography } from "~/ui-kit";
 
-export function AdNotFoundStub() {
+export interface AdNotFoundStubProps extends UiStackProps {}
+
+export function AdNotFoundStub(props: AdNotFoundStubProps) {
   return (
-    <Stack direction="row" alignItems="center" justifyContent="center" flex={1}>
-      <Stack
+    <UiStack
+      {...props}
+      direction="row"
+      alignItems="center"
+      justifyContent="center"
+      flex={1}
+    >
+      <UiStack
         direction="column"
         alignItems="center"
         justifyContent="center"
         gap={1.25}
       >
-        <Typography
+        <UiTypography
           component="h6"
           variant="h5"
           color="primary"
@@ -19,8 +27,8 @@ export function AdNotFoundStub() {
           }}
         >
           Объявление не найдено
-        </Typography>
-        <Typography
+        </UiTypography>
+        <UiTypography
           component="p"
           variant="body1"
           sx={theme => ({
@@ -30,8 +38,8 @@ export function AdNotFoundStub() {
         >
           Простите, по вашему запросу товар не найдет. Задайте запрос по-другому
           или измените характеристики
-        </Typography>
-      </Stack>
-    </Stack>
+        </UiTypography>
+      </UiStack>
+    </UiStack>
   );
 }

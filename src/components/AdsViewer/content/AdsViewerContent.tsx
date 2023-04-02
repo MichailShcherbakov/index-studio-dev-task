@@ -1,12 +1,12 @@
-import { Ad, AdsViewEnum } from "~/store/ads/type";
+import { Ad } from "~/store/ads/type";
 import {
   AdsViewerContentLayout,
   AdsViewerContentLayoutProps,
 } from "./AdsViewerContentLayout";
-import { Grid } from "@mui/material";
 import { AdCard } from "~/components/AdCard";
 import { useAdsViewSettings } from "~/store/ads/hooks/useAdsViewSettings";
 import { CELLS_SIZE_BY_VIEW, ORIENTATION_BY_VIEW } from "./constants";
+import { UiGrid } from "~/ui-kit";
 
 export interface AdsViewerContentProps extends AdsViewerContentLayoutProps {
   ads: Ad[];
@@ -21,7 +21,7 @@ export function AdsViewerContent({ ads, ...props }: AdsViewerContentProps) {
   return (
     <AdsViewerContentLayout {...props}>
       {ads.map(ad => (
-        <Grid
+        <UiGrid
           item
           key={ad.id}
           xs={cellSize.xs}
@@ -44,7 +44,7 @@ export function AdsViewerContent({ ads, ...props }: AdsViewerContentProps) {
             images={ad.images}
             isSeen={ad.seen}
           />
-        </Grid>
+        </UiGrid>
       ))}
     </AdsViewerContentLayout>
   );

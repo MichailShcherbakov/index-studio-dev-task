@@ -1,5 +1,4 @@
 import React from "react";
-import { Stack, Typography } from "@mui/material";
 import { makePrettyPriceNumber } from "./helpers/makePrettyPriceNumber";
 import { makePrettyDateTime } from "./helpers/makePrettyDateTime";
 import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
@@ -10,6 +9,7 @@ import { AdCardImageSlider } from "./AdCardImageSlider";
 import { Link } from "react-router-dom";
 import { AdSeenChip } from "./AdSeenChip";
 import { AdCardContentLayout } from "./AdCartContentLayout";
+import { UiStack, UiTypography } from "~/ui-kit";
 
 export interface AdCardProps extends AddCardLayoutProps {
   adId: Ad["id"];
@@ -52,8 +52,8 @@ export function _AdCard({
         <AdCardImageSlider images={images} />
       </AdCardImageLayout>
       <AdCardContentLayout>
-        <Stack direction="row" justifyContent="space-between">
-          <Typography
+        <UiStack direction="row" justifyContent="space-between">
+          <UiTypography
             component="p"
             variant="h4"
             noWrap
@@ -66,10 +66,10 @@ export function _AdCard({
             })}
           >
             {makePrettyPriceNumber(price, "₽")}
-          </Typography>
+          </UiTypography>
           <AdCardLikeButton adId={adId} />
-        </Stack>
-        <Typography
+        </UiStack>
+        <UiTypography
           component="p"
           variant="h6"
           noWrap
@@ -84,8 +84,8 @@ export function _AdCard({
           })}
         >
           {title}
-        </Typography>
-        <Stack
+        </UiTypography>
+        <UiStack
           direction="row"
           justifyContent="space-between"
           gap={2}
@@ -98,10 +98,10 @@ export function _AdCard({
             }),
           })}
         >
-          <Typography component="span" variant="body2" noWrap>
+          <UiTypography component="span" variant="body2" noWrap>
             {address}
-          </Typography>
-          <Typography
+          </UiTypography>
+          <UiTypography
             component="span"
             variant="body2"
             sx={{
@@ -109,8 +109,8 @@ export function _AdCard({
             }}
           >
             {makePrettyDateTime(createdAt)}
-          </Typography>
-        </Stack>
+          </UiTypography>
+        </UiStack>
       </AdCardContentLayout>
     </AdCardLayout>
   );

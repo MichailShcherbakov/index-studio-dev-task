@@ -44,17 +44,11 @@ export const setCurrentAdAction = createAction<{
 
 // Ads Viewing Settings
 
-export const loadAdsViewingSettingsAction = createAction(
-  "loadAdsViewingSettingsAction",
-);
-
 export const setAdsViewingSettingsAction = createAction<{
   settings: Partial<AdsViewingSettings>;
 }>("setAdsViewingSettingsAction");
 
 // Ad Metadata
-
-export const loadAdsMetadataAction = createAction("loadAdsMetadataAction");
 
 export const setAdMetadataAction = createAction<{
   adId: Ad["id"];

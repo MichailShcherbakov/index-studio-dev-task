@@ -1,9 +1,7 @@
-import { all, takeLatest } from "redux-saga/effects";
+import { all, fork, takeLatest } from "redux-saga/effects";
 import {
   loadCurrentAdAction,
   loadInitialAdsAction,
-  loadAdsMetadataAction,
-  loadAdsViewingSettingsAction,
   requestAdsAction,
   setAdMetadataAction,
   setAdsViewingSettingsAction,
@@ -20,9 +18,9 @@ import { getAdAsCurrentAd } from "./getAdAsCurrentAd";
 export function* adsActionWatcher() {
   yield all([
     // init state
+    fork(loadAdsMetadata),
+    fork(loadAdsViewingSettings),
     takeLatest(loadInitialAdsAction.type, loadInitialAds),
-    takeLatest(loadAdsMetadataAction.type, loadAdsMetadata),
-    takeLatest(loadAdsViewingSettingsAction.type, loadAdsViewingSettings),
     takeLatest(loadCurrentAdAction.type, getAdAsCurrentAd),
     // request
     takeLatest(requestAdsAction.type, getAds),

@@ -1,13 +1,13 @@
-import { Stack, StackProps } from "@mui/material";
 import React from "react";
 import { useScrollResolver } from "~/tools/hooks/useScrollResolver";
 import { UpwardButton } from "../UpwardButton";
+import { UiStack, UiStackProps } from "~/ui-kit";
 
 const RETURN_TO_ABOVE_EDGE = 100;
 
 export type ReturnToAboveProviderProps<
   TComponent extends React.ElementType<any> = "div",
-> = StackProps<TComponent>;
+> = UiStackProps<TComponent>;
 
 export function ReturnToAboveProvider<
   TComponent extends React.ElementType<any>,
@@ -33,9 +33,9 @@ export function ReturnToAboveProvider<
   return (
     <>
       {visible && <UpwardButton onClick={scrollToTop} />}
-      <Stack ref={ref} overflow="auto" height="100vh" {...props}>
+      <UiStack ref={ref} overflow="auto" height="100vh" {...props}>
         {children}
-      </Stack>
+      </UiStack>
     </>
   );
 }

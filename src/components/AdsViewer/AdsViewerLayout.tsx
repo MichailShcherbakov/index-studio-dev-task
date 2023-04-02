@@ -1,8 +1,8 @@
-import { Box, BoxProps, styled } from "@mui/material";
+import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
-export interface AdsViewerLayoutProps extends BoxProps {}
+export interface AdsViewerLayoutProps extends UiBoxProps {}
 
-export const AdsViewerLayout = styled(Box)(({ theme }) => ({
+export const AdsViewerLayout = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
 

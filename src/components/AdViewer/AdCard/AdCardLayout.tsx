@@ -1,8 +1,8 @@
-import { Box, styled } from "@mui/material";
+import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
-export interface AdCardLayoutProps {}
+export interface AdCardLayoutProps extends UiBoxProps {}
 
-export const AdCardLayout = styled(Box)(({ theme }) => ({
+export const AdCardLayout = styled(UiBox)(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
 

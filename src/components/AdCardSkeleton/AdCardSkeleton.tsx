@@ -1,7 +1,6 @@
-import { Box, Skeleton, Stack } from "@mui/material";
 import { AdCardImageLayout } from "../AdCard/AdCardImageLayout";
 import { AdCardLayout, AddCardLayoutProps } from "../AdCard/AdCardLayout";
-import { grey } from "~/ui-kit";
+import { UiBox, grey, UiSkeleton, UiStack } from "~/ui-kit";
 
 export interface AdCardSkeletonProps extends AddCardLayoutProps {}
 
@@ -30,16 +29,8 @@ export function AdCardSkeleton({
           backgroundColor: theme.palette.background.default,
         })}
       >
-        <Skeleton
-          variant="rectangular"
-          sx={theme => ({
-            width: "100%",
-            height: "100%",
-
-            backgroundColor: grey[200],
-          })}
-        ></Skeleton>
-        <Box
+        <UiSkeleton variant="rectangular" width="100%" height="100%" />
+        <UiBox
           sx={theme => ({
             position: "absolute",
             left: "50%",
@@ -56,7 +47,7 @@ export function AdCardSkeleton({
           })}
         />
       </AdCardImageLayout>
-      <Stack
+      <UiStack
         direction="column"
         sx={theme => ({
           width: "100%",
@@ -66,40 +57,40 @@ export function AdCardSkeleton({
         })}
         gap={1.25}
       >
-        <Stack direction="row" justifyContent="space-between" gap={1.25}>
-          <Skeleton
+        <UiStack direction="row" justifyContent="space-between" gap={1.25}>
+          <UiSkeleton
             variant="rounded"
             sx={theme => ({
               width: "100%",
               height: theme.spacing(3.125),
-              backgroundColor: grey[200],
+
               borderRadius: theme.spacing(1),
             })}
           />
-          <Skeleton
+          <UiSkeleton
             variant="rounded"
             sx={theme => ({
               width: theme.spacing(3.125),
               height: theme.spacing(3.125),
               flexShrink: 0,
-              backgroundColor: grey[200],
+
               borderRadius: theme.spacing(1),
             })}
           />
-        </Stack>
-        <Skeleton
+        </UiStack>
+        <UiSkeleton
           variant="rounded"
           sx={theme => ({
             width: "100%",
             height: theme.spacing(2),
-            backgroundColor: grey[200],
+
             borderRadius:
               orientation === "vertical"
                 ? theme.spacing(0.75)
                 : theme.spacing(1),
           })}
         />
-        <Skeleton
+        <UiSkeleton
           variant="rounded"
           sx={theme => ({
             width: orientation === "vertical" ? "100%" : "50%",
@@ -107,33 +98,33 @@ export function AdCardSkeleton({
               orientation === "vertical"
                 ? theme.spacing(1.75)
                 : theme.spacing(2),
-            backgroundColor: grey[200],
+
             borderRadius: theme.spacing(0.75),
           })}
         />
         {orientation === "horizontal" && (
-          <Stack direction="row" alignItems="center" gap={1}>
-            <Skeleton
+          <UiStack direction="row" alignItems="center" gap={1}>
+            <UiSkeleton
               variant="rounded"
               sx={theme => ({
                 width: "75%",
                 height: theme.spacing(1.75),
-                backgroundColor: grey[200],
+
                 borderRadius: theme.spacing(0.75),
               })}
             />
-            <Skeleton
+            <UiSkeleton
               variant="rounded"
               sx={theme => ({
                 width: "25%",
                 height: theme.spacing(1.75),
-                backgroundColor: grey[200],
+
                 borderRadius: theme.spacing(0.75),
               })}
             />
-          </Stack>
+          </UiStack>
         )}
-      </Stack>
+      </UiStack>
     </AdCardLayout>
   );
 }

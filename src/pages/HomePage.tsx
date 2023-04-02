@@ -3,14 +3,11 @@ import { AdsViewer } from "~/components/AdsViewer";
 import { useAdsAction } from "~/store/ads/hooks/useAdsAction";
 
 export function HomePage() {
-  const { loadInitialAds, loadAdsViewingSettings, loadAdsMetadata } =
-    useAdsAction();
+  const { loadInitialAds } = useAdsAction();
 
   React.useEffect(() => {
     loadInitialAds();
-    loadAdsViewingSettings();
-    loadAdsMetadata();
-  }, [loadInitialAds, loadAdsViewingSettings, loadAdsMetadata]);
+  }, [loadInitialAds]);
 
   return <AdsViewer />;
 }

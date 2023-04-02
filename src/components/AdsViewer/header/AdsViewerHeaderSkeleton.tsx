@@ -1,4 +1,4 @@
-import { Skeleton } from "@mui/material";
+import { UiSkeleton } from "~/ui-kit";
 import {
   AdsViewerHeaderLayout,
   AdsViewerHeaderLayoutProps,
@@ -11,7 +11,7 @@ export interface AdsViewerHeaderSkeletonProps
 export function AdsViewerHeaderSkeleton(props: AdsViewerHeaderSkeletonProps) {
   return (
     <AdsViewerHeaderLayout {...props}>
-      <Skeleton
+      <UiSkeleton
         variant="rounded"
         sx={theme => ({
           width: theme.spacing(10.5),

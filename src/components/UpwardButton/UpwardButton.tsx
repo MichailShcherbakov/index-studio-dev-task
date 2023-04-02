@@ -1,6 +1,5 @@
-import { UiButton, UiButtonProps, grey } from "~/ui-kit";
+import { UiButton, UiButtonProps, UiTypography, grey } from "~/ui-kit";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { Typography } from "@mui/material";
 
 export interface UpwardButtonProps extends UiButtonProps {}
 
@@ -35,7 +34,7 @@ export function UpwardButton(props: UpwardButtonProps) {
       })}
     >
       <KeyboardArrowUpIcon />
-      <Typography
+      <UiTypography
         sx={theme => ({
           [theme.breakpoints.down("sm")]: {
             display: "none",
@@ -43,7 +42,7 @@ export function UpwardButton(props: UpwardButtonProps) {
         })}
       >
         Вверх
-      </Typography>
+      </UiTypography>
     </UiButton>
   );
 }

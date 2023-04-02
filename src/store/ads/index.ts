@@ -3,7 +3,9 @@ import { AdsState, AdsViewEnum, RequestStatusEnum } from "./type";
 import {
   appendAdsAction,
   requestAdsAction,
+  setAdMetadataAction,
   setAdsAction,
+  setAdsMetadataAction,
   setAdsViewingSettingsAction,
   setRequestStatusAction,
 } from "./actions";
@@ -13,6 +15,7 @@ const initialState: AdsState = {
   page: 0,
   pages: 0,
   status: RequestStatusEnum.IDLE,
+  metadata: {},
   viewingSettings: {
     view: AdsViewEnum.GRID,
   },
@@ -44,6 +47,15 @@ const adsSlice = createSlice({
         state.viewingSettings = {
           ...state.viewingSettings,
           ...action.payload.settings,
+        };
+      })
+      .addCase(setAdsMetadataAction, (state, action) => {
+        state.metadata = action.payload.metadata;
+      })
+      .addCase(setAdMetadataAction, (state, action) => {
+        state.metadata[action.payload.adId] = {
+          ...state.metadata[action.payload.adId],
+          ...action.payload.metadata,
         };
       });
   },

@@ -24,6 +24,7 @@ export function AdsViewerContent({ ads, ...props }: AdsViewerContentProps) {
         <Grid item key={ad.id} xs={cellSize}>
           <AdCard
             orientation={orientation}
+            adId={ad.id}
             title={ad.title}
             price={ad.price}
             address={ad.address}

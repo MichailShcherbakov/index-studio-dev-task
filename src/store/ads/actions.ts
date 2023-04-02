@@ -1,5 +1,11 @@
 import { createAction } from "@reduxjs/toolkit";
-import { Ad, AdsViewingSettings, RequestStatusEnum } from "./type";
+import {
+  Ad,
+  AdMetadata,
+  AdMetadataCollection,
+  AdsViewingSettings,
+  RequestStatusEnum,
+} from "./type";
 
 export type RequestAdsOptions = {
   page: number;
@@ -26,7 +32,17 @@ export const setAdsViewingSettingsAction = createAction<{
   settings: Partial<AdsViewingSettings>;
 }>("setAdsViewingSettingsAction");
 
+export const setAdMetadataAction = createAction<{
+  adId: Ad["id"];
+  metadata: Partial<AdMetadata>;
+}>("setAdMetadataAction");
+
 /** @private */
 export const setRequestStatusAction = createAction<{
   status: RequestStatusEnum;
 }>("setRequestStatusAction");
+
+/** @private */
+export const setAdsMetadataAction = createAction<{
+  metadata: AdMetadataCollection;
+}>("setAdsMetadataAction");

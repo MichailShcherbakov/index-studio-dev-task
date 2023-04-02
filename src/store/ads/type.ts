@@ -29,5 +29,9 @@ export type AdsState = {
   page: number;
   pages: number;
   status: RequestStatusEnum;
+  metadata: AdMetadataCollection;
   viewingSettings: AdsViewingSettings;
 };
+
+export type AdMetadata = { isLiked: boolean };
+export type AdMetadataCollection = Record<Ad["id"], AdMetadata>;

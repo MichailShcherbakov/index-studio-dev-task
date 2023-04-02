@@ -6,12 +6,15 @@ import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { AdCardImageLayout } from "./AdCardImageLayout";
 
 import { ReactComponent as LikeIcon } from "~/assets/icons/like.svg";
+import { useAdLike } from "~/store/ads/hooks/useAdLike";
+import { Ad } from "~/store/ads/type";
 
 export interface AdCardProps extends AddCardLayoutProps {
-  title: string;
-  price: number;
-  address: string;
-  createdAt: string;
+  adId: Ad["id"];
+  title: Ad["title"];
+  price: Ad["price"];
+  address: Ad["address"];
+  createdAt: Ad["createdAt"];
   /**
    * @default false
    */
@@ -19,6 +22,7 @@ export interface AdCardProps extends AddCardLayoutProps {
 }
 
 export function AdCard({
+  adId,
   title,
   price,
   address,
@@ -26,6 +30,16 @@ export function AdCard({
   isSeen = false,
   ...props
 }: AdCardProps) {
+  const { isLiked, likeAd, unlikeAd } = useAdLike(adId);
+
+  function likeChangeHandler() {
+    if (isLiked) {
+      unlikeAd();
+    } else {
+      likeAd();
+    }
+  }
+
   return (
     <AdCardLayout {...props}>
       <AdCardImageLayout {...props}>
@@ -57,7 +71,11 @@ export function AdCard({
           <Typography component="p" variant="h4" noWrap>
             {makePrettyPriceNumber(price, "₽")}
           </Typography>
-          <UiIconButton size="small">
+          <UiIconButton
+            size="small"
+            isActive={isLiked}
+            onClick={likeChangeHandler}
+          >
             <LikeIcon />
           </UiIconButton>
         </Stack>

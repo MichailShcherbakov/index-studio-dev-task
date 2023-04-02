@@ -1,13 +1,12 @@
+import React from "react";
 import { Stack, Typography } from "@mui/material";
-import { UiChip, UiIconButton, grey, white } from "~/ui-kit";
+import { UiChip, white } from "~/ui-kit";
 import { makePrettyPriceNumber } from "./helpers/makePrettyPriceNumber";
 import { makePrettyDateTime } from "./helpers/makePrettyDateTime";
 import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { AdCardImageLayout } from "./AdCardImageLayout";
-
-import { ReactComponent as LikeIcon } from "~/assets/icons/like.svg";
-import { useAdLike } from "~/store/ads/hooks/useAdLike";
 import { Ad } from "~/store/ads/type";
+import { AdCardLikeButton } from "./AdCardLikeButton";
 
 export interface AdCardProps extends AddCardLayoutProps {
   adId: Ad["id"];
@@ -21,7 +20,7 @@ export interface AdCardProps extends AddCardLayoutProps {
   isSeen?: boolean;
 }
 
-export function AdCard({
+export function _AdCard({
   adId,
   title,
   price,
@@ -30,16 +29,6 @@ export function AdCard({
   isSeen = false,
   ...props
 }: AdCardProps) {
-  const { isLiked, likeAd, unlikeAd } = useAdLike(adId);
-
-  function likeChangeHandler() {
-    if (isLiked) {
-      unlikeAd();
-    } else {
-      likeAd();
-    }
-  }
-
   return (
     <AdCardLayout {...props}>
       <AdCardImageLayout {...props}>
@@ -71,13 +60,7 @@ export function AdCard({
           <Typography component="p" variant="h4" noWrap>
             {makePrettyPriceNumber(price, "₽")}
           </Typography>
-          <UiIconButton
-            size="small"
-            isActive={isLiked}
-            onClick={likeChangeHandler}
-          >
-            <LikeIcon />
-          </UiIconButton>
+          <AdCardLikeButton adId={adId} />
         </Stack>
         <Typography
           component="p"
@@ -107,3 +90,5 @@ export function AdCard({
     </AdCardLayout>
   );
 }
+
+export const AdCard = React.memo(_AdCard);

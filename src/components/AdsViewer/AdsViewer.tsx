@@ -17,7 +17,7 @@ export function AdsViewer() {
   if (!isLoading && !isError && isEmpty) return <EmptyRequestStub />;
 
   return (
-    <Stack direction="column" gap={3.25}>
+    <Stack direction="column" gap={3.25} p={4.375}>
       {isError && <RequestErrorStub onRequestAgain={refetchAds} />}
       {isLoading && <AdsViewerHeaderSkeleton />}
       {!isLoading && !isError && <AdsViewerHeader />}

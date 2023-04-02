@@ -6,7 +6,7 @@
 - Like/Unlike option
 - Scroll to page top
 
-## Preview - [Link](https://index-studio-dev-task-five.vercel.app/)
+## Preview - [Link](https://index-studio-dev-task.netlify.app/)
 
 #### Main Page
 

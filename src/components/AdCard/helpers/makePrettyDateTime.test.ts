@@ -1,6 +1,5 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect } from "vitest";
 import { makePrettyDateTime } from "./makePrettyDateTime";
-import { DateTime } from "luxon";
 
 describe("makePrettyDateTime", () => {
   describe.each([

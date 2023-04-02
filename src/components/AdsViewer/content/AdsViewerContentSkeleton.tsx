@@ -2,7 +2,7 @@ import {
   AdsViewerContentLayout,
   AdsViewerContentLayoutProps,
 } from "./AdsViewerContentLayout";
-import { AdCardSkeleton } from "~/components/AdCardSkeleton";
+import { AdCardSkeleton } from "~/components/AdCard/AdCardSkeleton";
 import { useAdsViewSettings } from "~/store/ads/hooks/useAdsViewSettings";
 import { CELLS_SIZE_BY_VIEW, ORIENTATION_BY_VIEW } from "./constants";
 import { UiGrid } from "~/ui-kit";

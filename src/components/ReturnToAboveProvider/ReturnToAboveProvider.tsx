@@ -1,6 +1,6 @@
 import React from "react";
 import { useScrollResolver } from "~/tools/hooks/useScrollResolver";
-import { UpwardButton } from "../UpwardButton";
+import { UpwardButton } from "../buttons/UpwardButton";
 import { UiStack, UiStackProps } from "~/ui-kit";
 
 const RETURN_TO_ABOVE_EDGE = 100;

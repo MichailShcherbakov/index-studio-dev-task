@@ -5,19 +5,35 @@ import {
   UiToggleButtonGroup,
   UiToggleButton,
   UiToggleButtonGroupProps,
-} from "~/ui-kit/";
+  UiTooltip,
+} from "~/ui-kit";
+
+const GRID_VIEW_TOOLTIP = "Галереля";
+const LIST_VIEW_TOOLTIP = "Список";
 
 export interface AdsViewerToggleButtonProps extends UiToggleButtonGroupProps {}
 
 export function AdsViewerToggleButton(props: AdsViewerToggleButtonProps) {
   return (
     <UiToggleButtonGroup {...props} exclusive>
-      <UiToggleButton value={AdsViewEnum.GRID} disableRipple>
-        <GridIcon />
-      </UiToggleButton>
-      <UiToggleButton value={AdsViewEnum.LIST} disableRipple>
-        <ListIcon />
-      </UiToggleButton>
+      <UiTooltip title={GRID_VIEW_TOOLTIP}>
+        <UiToggleButton
+          disableRipple
+          value={AdsViewEnum.GRID}
+          selected={props.value === AdsViewEnum.GRID}
+        >
+          <GridIcon />
+        </UiToggleButton>
+      </UiTooltip>
+      <UiTooltip title={LIST_VIEW_TOOLTIP}>
+        <UiToggleButton
+          disableRipple
+          value={AdsViewEnum.LIST}
+          selected={props.value === AdsViewEnum.LIST}
+        >
+          <ListIcon />
+        </UiToggleButton>
+      </UiTooltip>
     </UiToggleButtonGroup>
   );
 }

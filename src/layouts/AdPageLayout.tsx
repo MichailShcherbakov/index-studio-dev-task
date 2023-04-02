@@ -1,4 +1,4 @@
-import { BackwardButton } from "~/components/BackwardButton";
+import { BackwardButton } from "~/components/buttons/BackwardButton";
 import { UiBox, UiBoxProps, styled } from "~/ui-kit";
 
 export interface AdPageLayoutBaseProps extends UiBoxProps {}

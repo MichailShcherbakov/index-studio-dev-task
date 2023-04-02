@@ -1,5 +1,5 @@
 import { useAds } from "~/store/ads/hooks";
-import { UiContainer } from "~/ui-kit/container";
+import { UiContainer } from "~/ui-kit";
 import { AdsViewerFooter } from "./footer/AdsViewerFooter";
 import { AdsViewerFooterSkeleton } from "./footer/AdsViewerFooterSkeleton";
 import { AdsViewerHeader } from "./header/AdsViewerHeader";

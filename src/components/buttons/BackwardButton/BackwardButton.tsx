@@ -1,6 +1,8 @@
 import WestIcon from "@mui/icons-material/West";
 import { useNavigate } from "react-router-dom";
-import { UiIconButton } from "~/ui-kit";
+import { UiIconButton, UiTooltip } from "~/ui-kit";
+
+const BACKWARD_TOOLTIP = "Назад";
 
 export function BackwardButton() {
   const navigate = useNavigate();
@@ -10,8 +12,10 @@ export function BackwardButton() {
   }
 
   return (
-    <UiIconButton onClick={clickHandler}>
-      <WestIcon />
-    </UiIconButton>
+    <UiTooltip title={BACKWARD_TOOLTIP}>
+      <UiIconButton onClick={clickHandler}>
+        <WestIcon />
+      </UiIconButton>
+    </UiTooltip>
   );
 }

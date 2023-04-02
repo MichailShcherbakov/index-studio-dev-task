@@ -1,5 +1,5 @@
-import { AdCardImageLayout } from "../AdCard/AdCardImageLayout";
-import { AdCardLayout, AddCardLayoutProps } from "../AdCard/AdCardLayout";
+import { AdCardImageLayout } from "./AdCardImageLayout";
+import { AdCardLayout, AddCardLayoutProps } from "./AdCardLayout";
 import { UiBox, grey, UiSkeleton, UiStack } from "~/ui-kit";
 
 export interface AdCardSkeletonProps extends AddCardLayoutProps {}

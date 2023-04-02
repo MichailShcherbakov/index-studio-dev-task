@@ -13,10 +13,10 @@ export function AdsViewerHeader(props: AdsViewerHeaderProps) {
 
   function adsViewChangeHandler(
     _: React.MouseEvent<HTMLElement, MouseEvent>,
-    view: AdsViewEnum,
+    view: AdsViewEnum | null,
   ) {
     setSettings({
-      view,
+      view: view ?? settings.view,
     });
   }
 

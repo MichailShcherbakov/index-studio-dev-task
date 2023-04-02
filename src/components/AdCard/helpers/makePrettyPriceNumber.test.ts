@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect } from "vitest";
 import { makePrettyPriceNumber } from "./makePrettyPriceNumber";
 
 describe("makePrettyPriceNumber", () => {

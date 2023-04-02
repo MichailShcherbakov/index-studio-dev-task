@@ -19,7 +19,7 @@ export function useAdLike(adId: Ad["id"]) {
         },
       }),
     );
-  }, [dispatch]);
+  }, [adId, dispatch]);
 
   const unlikeAd = React.useCallback(() => {
     dispatch(
@@ -30,7 +30,7 @@ export function useAdLike(adId: Ad["id"]) {
         },
       }),
     );
-  }, [dispatch]);
+  }, [adId, dispatch]);
 
   return {
     isLiked,

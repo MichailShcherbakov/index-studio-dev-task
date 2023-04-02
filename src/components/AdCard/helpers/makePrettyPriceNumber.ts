@@ -1,7 +1,10 @@
 export function makePrettyPriceNumber(price: number, currency?: string) {
   currency = currency ? " " + currency : "";
 
-  let [integerPart, fractionalPart] = price.toString().split(".");
+  const parts = price.toString().split(".");
+
+  const integerPart = parts[0];
+  let fractionalPart = parts[1];
 
   fractionalPart = fractionalPart ? "." + fractionalPart : "";
 
